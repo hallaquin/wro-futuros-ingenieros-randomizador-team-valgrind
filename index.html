@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WRO Futuros Ingenieros - Randomizador</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js" defer></script>   
+  </head>
+  
+  <body>
+    <header>
+      <h1>WRO Futuros Ingenieros - Randomizador</h1>
+    </header>
+
+    <main class="main-container">
+      
+      <section class="left-container">
+        <div class="control-card">
+          <h2>Modo de Ronda</h2>
+          <div class="center-div">
+            <div class="button b2" id="button-10" onclick="toggleRound()">
+              <input type="checkbox" class="checkbox" />
+              <div class="knobs">
+                <span>Abierta</span>
+              </div>
+              <div class="layer"></div>
+            </div>
+            <button class="btn-primary" onclick="renderMat()">Generar Pista</button>
+          </div>
+        </div>
+
+        <div class="control-card">
+          <h2>Cronómetro</h2>
+          <div class="center-div">
+            <h3 id="timer">
+              <span id="timer-mmss">00:00</span><span id="timer-ms">00</span>
+            </h3>
+            <button id="timer_button" class="btn-timer" onclick="startTimer()">Iniciar</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="right-container">
+        <div id="object-container">
+          <img id="field" src="field.png" alt="WRO Playfield">
+          
+          <div id="robot">
+            <svg id="robot-arrow" xmlns="http://www.w3.org/2000/svg" width="70%" height="70%" fill="currentColor" viewBox="0 0 16 16"> 
+              <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/> 
+            </svg>
+          </div>
+
+          <div class="wall" id="top-wall"></div>
+          <div class="wall" id="right-wall"></div>
+          <div class="wall" id="bottom-wall"></div>
+          <div class="wall" id="left-wall"></div>
+          <div class="parking" id="parking1"></div>
+          <div class="parking" id="parking2"></div>
+        </div>
+      </section>
+
+      <aside class="history-container">
+        <h3>Historial</h3>
+
+        <div class="filter-bar">
+          <select id="filter-round" onchange="applyFilters()">
+            <option value="all">Todas las Rondas</option>
+            <option value="Abierta">Ronda Abierta</option>
+            <option value="Cerrada">Ronda Cerrada</option>
+          </select>
+          <select id="filter-quadrant" onchange="applyFilters()">
+            <option value="all">Todos los Cuadrantes</option>
+            <option value="0">Cuadrante 0</option>
+            <option value="1">Cuadrante 1</option>
+            <option value="2">Cuadrante 2</option>
+            <option value="3">Cuadrante 3</option>
+          </select>
+        </div>
+
+        <div id="history-log" class="history-log">
+          <p class="empty-msg">No hay lanzamientos registrados aún.</p>
+        </div>
+        <button onclick="clearHistory()" class="btn-clear">Limpiar Historial</button>
+      </aside>
+
+    </main>
+
+    <footer>
+      <span>Copyright © 2026 Team Valgrind - WRO Futuros Ingenieros Randomizador.</span>
+    </footer>
+  </body>
+</html>
