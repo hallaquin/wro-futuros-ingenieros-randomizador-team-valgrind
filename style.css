@@ -138,8 +138,8 @@ button.btn-timer:hover {
 
 #object-container {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 50%;
+  height: 50%;
   background: #151b26;
   border: 1px solid #242f41;
   border-radius: 12px;
